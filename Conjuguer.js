@@ -59,20 +59,18 @@ var Deutsch = [ "lieben/ mögen", "aufhören/ abstellen", "schwatzen", "versteck
 
 document.getElementById("Verb").textContent = "Conjuguer";
 
-// 1. Globale Variablen (Ganz oben im Script)
+
 const zahlen = Array.from({ length: 148 }, (_, i) => i);
 let aktuellerSchritt = 0;
 let aktuelleZufallsZahl;
 let allInputs; 
-const fehlerZaehler = {}; // Hier wohnen die Fehlversuche
+const fehlerZaehler = {}; 
 
-// Shuffle (Fisher-Yates)
 for (let i = zahlen.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [zahlen[i], zahlen[j]] = [zahlen[j], zahlen[i]];
 }
 
-// 2. Die Funktion zum Anzeigen (muss global sein)
 function verbAnzeigen() {
     aktuelleZufallsZahl = zahlen[aktuellerSchritt];
     
@@ -81,10 +79,8 @@ function verbAnzeigen() {
         verbAnzeige.textContent = Französisch[aktuelleZufallsZahl] + " (" + Deutsch[aktuelleZufallsZahl] + ")";
     }
 
-    // WICHTIG: Fehlerzähler für das neue Verb leeren
     for (let key in fehlerZaehler) delete fehlerZaehler[key];
 
-    // Grid leeren und Felder reaktivieren
     if (allInputs) {
         allInputs.forEach(input => {
             input.value = "";
@@ -95,9 +91,10 @@ function verbAnzeigen() {
     }
 }
 
-// 3. Das Haupt-Event beim Laden der Seite
+
+
 window.addEventListener('load', () => {
-    // Falls IDs noch an Divs hängen -> verschieben
+
     document.querySelectorAll('.grid-item[id]').forEach(div => {
         const input = div.querySelector('input');
         if (input) {
@@ -108,7 +105,7 @@ window.addEventListener('load', () => {
 
     allInputs = document.querySelectorAll('.verb-input');
     
-    // Jetzt das erste Verb anzeigen
+
     verbAnzeigen(); 
 
     allInputs.forEach(input => {
@@ -127,16 +124,16 @@ window.addEventListener('load', () => {
                 const solution = correctList[aktuelleZufallsZahl].toLowerCase().trim();
                 const userValue = this.value.trim().toLowerCase();
 
-                // --- NEU: Debugging Infos in der Konsole ---
+
                 console.log("---------------------------------------");
                 console.log("Feld-ID (Liste):", listName);
                 console.log("Verb-Index (0-147):", aktuelleZufallsZahl);
                 console.log("ERWARTETE LÖSUNG:", solution);
                 console.log("DEINE EINGABE:", userValue);
-                // -------------------------------------------
+     
 
                 if (userValue === solution) {
-                    // RICHTIG
+
                     this.classList.add('correct-text');
                     this.classList.remove('wrong-border');
                     this.style.color = "#28a745"; 
@@ -150,27 +147,25 @@ window.addEventListener('load', () => {
                     
                     checkIfAllFinished();
                 }  else {
-                    // FALSCH -> Zähler hochsetzen
+
                     fehlerZaehler[this.id] = (fehlerZaehler[this.id] || 0) + 1;
                     console.log("Versuch Nr.:", fehlerZaehler[this.id], "für", listName);
 
                     if (fehlerZaehler[this.id] >= 3) {
-                        // LÖSUNG ANZEIGEN (nach 3 Fehlern)
-                        this.value = solution; // Lösung reinschreiben
+
+                        this.value = solution; 
                         
-                        // Hier setzen wir die Farbe explizit auf Rot
+
                         this.style.color = "#dc3545"; 
-                        this.style.fontWeight = "bold"; // Optional: Fett machen
+                        this.style.fontWeight = "bold"; 
                         
-                        this.disabled = true; // Feld sperren
+                        this.disabled = true; 
                         this.classList.remove('wrong-border');
                         
-                        // Wir fügen NICHT die Klasse 'correct-text' hinzu, 
-                        // damit es nicht grün wird.
-                        
+
                         console.log("%cAutomatisierte Lösung (3 Fehler): " + solution, "color: red;");
 
-                        // Nach kurzer Pause weiter zum nächsten Feld
+
                         setTimeout(() => {
                             const list = Array.from(allInputs);
                             const index = list.indexOf(this);
@@ -178,7 +173,7 @@ window.addEventListener('load', () => {
                             checkIfAllFinished();
                         }, 800);
                     } else {
-                        // Normales "Falsch"-Feedback (Roter Rahmen)
+                      
                         this.classList.add('wrong-border');
                         setTimeout(() => this.classList.remove('wrong-border'), 2000);
                     }
@@ -202,3 +197,24 @@ function checkIfAllFinished() {
         }, 300);
     }
 }
+
+function skip() {
+
+    aktuellerSchritt++;
+
+
+    if (aktuellerSchritt < zahlen.length) {
+
+        verbAnzeigen();
+        
+
+        if (allInputs && allInputs[0]) {
+            allInputs[0].focus();
+        }
+        
+        console.log("Verb übersprungen. Neuer Index:", zahlen[aktuellerSchritt]);
+    } else {
+        alert("Du hast alle Verben der Liste gesehen!");
+    }
+}
+
