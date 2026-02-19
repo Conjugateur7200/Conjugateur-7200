@@ -143,7 +143,8 @@ window.addEventListener('load', () => {
                     const list = Array.from(allInputs);
                     const index = list.indexOf(this);
 
-                    if (list[index + 8]) list[index + 8].focus(); 
+                    if (list[index + 8]) list[index + 8].focus();
+                    if (index >= 40) list[index-39].focus();
                     
                     checkIfAllFinished();
                 }  else {
@@ -169,7 +170,8 @@ window.addEventListener('load', () => {
                         setTimeout(() => {
                             const list = Array.from(allInputs);
                             const index = list.indexOf(this);
-                            if (list[index + 1]) list[index + 1].focus();
+                            if (list[index + 8]) list[index + 8].focus();
+                            if (index >= 40) list[index-39].focus();
                             checkIfAllFinished();
                         }, 800);
                     } else {
