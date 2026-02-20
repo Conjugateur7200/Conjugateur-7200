@@ -11,10 +11,11 @@ nav a {
 }
 
 nav a2 {
+  position: absolute;
   color: white;
   text-decoration: none;
   font-size: 18px;
-  right: 5px;
+  right: 10px;
   text-align: right;
 }
 
@@ -338,6 +339,7 @@ footer {
 
 
   
+
 
 
 
