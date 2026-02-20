@@ -1,6 +1,6 @@
 const footer = document.getElementById('footer');
 const btn = document.getElementById('showFooterBtn');
-const WebsiteVersion = 0;
+const WebsiteVersion = "0";
 
 if (localStorage.getItem("version") !== WebsiteVersion) {
     localStorage.setItem("version", WebsiteVersion);
@@ -17,3 +17,4 @@ btn.addEventListener('click', () => {
   }
 
 });
+
