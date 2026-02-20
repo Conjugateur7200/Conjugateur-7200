@@ -1,13 +1,6 @@
 const footer = document.getElementById('footer');
 const btn = document.getElementById('showFooterBtn');
-const WebsiteVersion = "0";
 
-document.getElementById("logo").src = "/logo.png?v=" + Date.now();
-
-if (localStorage.getItem("version") !== WebsiteVersion) {
-    localStorage.setItem("version", WebsiteVersion);
-    window.location.reload();
-}
 
 btn.addEventListener('click', () => {
 
@@ -19,5 +12,6 @@ btn.addEventListener('click', () => {
   }
 
 });
+
 
 
