@@ -10,6 +10,14 @@ nav a {
   font-size: 18px;
 }
 
+nav a2 {
+  color: white;
+  text-decoration: none;
+  margin-right: 36px;
+  font-size: 18px;
+  right: 5px;
+}
+
 .hero {
   padding: 0px;
   text-align: center;
@@ -328,11 +336,8 @@ footer {
   background-color: #0056b3;
 }
 
-.p23{
-  font-size: 30px;
-  color: white;
-  right: 5px; 
-}
+
   
+
 
 
