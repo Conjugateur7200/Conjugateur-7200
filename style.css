@@ -10,15 +10,6 @@ nav a {
   font-size: 18px;
 }
 
-nav a2 {
-  position: fixed;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  right: 10px;
-  text-align: right;
-}
-
 .hero {
   padding: 0px;
   text-align: center;
@@ -336,13 +327,3 @@ footer {
 #skip-btn:hover {
   background-color: #0056b3;
 }
-
-
-  
-
-
-
-
-
-
-
