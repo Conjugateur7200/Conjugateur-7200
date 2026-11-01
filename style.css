@@ -327,3 +327,82 @@ footer {
 #skip-btn:hover {
   background-color: #0056b3;
 }
+
+
+/* ===== Testez-vous ===== */
+#typLabel {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#TestBox #ausgabe {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+#unterLabel {
+  text-align: center;
+  font-size: 22px;
+  color: #444;
+  margin-bottom: 40px;
+  min-height: 28px;
+}
+
+#Fortschritt {
+  margin: 0 0 10px 0;
+}
+
+#ResultBox {
+  display: none;
+  width: 700px;
+  margin: 20px auto 120px auto;
+  padding: 30px 40px;
+  background-color: rgb(225, 225, 225);
+  border-radius: 40px;
+  box-sizing: border-box;
+}
+
+#Punkte {
+  text-align: center;
+  font-size: 32px;
+  margin: 0 0 20px 0;
+}
+
+#ResultList {
+  margin: 0;
+  padding-left: 35px;
+  font-size: 18px;
+}
+
+#ResultList li {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.res-richtig { background: rgba(40, 167, 69, 0.18); }
+.res-falsch  { background: rgba(220, 105, 149, 0.30); }
+
+.res-kopf  { font-weight: bold; }
+.res-zeile { margin-top: 4px; font-size: 17px; }
+.res-dein  { text-decoration: line-through; color: #a02040; }
+.res-loesung { color: #1a7a33; font-weight: bold; }
+
+#NochmalBtn {
+  display: block;
+  margin: 25px auto 0 auto;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+#NochmalBtn:hover { background-color: #0056b3; }
