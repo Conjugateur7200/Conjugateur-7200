@@ -1,6 +1,9 @@
 nav {
   background: #222;
   padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
 }
 
 nav a {
@@ -8,6 +11,13 @@ nav a {
   text-decoration: none;
   margin-right: 36px;
   font-size: 18px;
+}
+
+nav a2 {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  
 }
 
 .hero {
